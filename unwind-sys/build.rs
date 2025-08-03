@@ -8,6 +8,14 @@ fn main() {
     } else {
         "libunwind"
     };
+    
+    if let Some(os) = env::var_os("CARGO_CFG_TARGET_OS") {
+        if os == "macos" {
+            println!("cargo:rustc-link-lib=framework=System");
+            return;
+        }
+    }
+    
     let library = pkg_config::probe_library(lib).unwrap();
 
     // There were some ABI changes from 1.1 to 1.2 on x86_64
