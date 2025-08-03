@@ -6,7 +6,7 @@ fn main() {
     let lib = if env::var_os("CARGO_FEATURE_PTRACE").is_some() {
         "libunwind-ptrace"
     } else {
-        "libunwind-generic"
+        "libunwind"
     };
     let library = pkg_config::probe_library(lib).unwrap();
 
