@@ -221,7 +221,7 @@ cfg_if! {
     }
 }
 
-extern "C" {
+unsafe extern "C" {
     #[link_name = "unw_init_local"]
     pub fn unw_init_local(cur: *mut unw_cursor_t, ctx: *mut unw_context_t) -> c_int;
 

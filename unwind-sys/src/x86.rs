@@ -91,7 +91,7 @@ macro_rules! unw_tdep_getcontext {
     };
 }
 
-extern "C" {
+unsafe extern "C" {
     #[link_name = "_Ux86_getcontext"]
     pub fn unw_tdep_getcontext(ctx: *mut unw_tdep_context_t) -> c_int;
 
